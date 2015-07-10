@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Request;
 use Input;
 use Session;
-//use Illuminate\Http\Request;
 use App\Url;
 use DB;
 use App\Http\Requests;
@@ -15,18 +14,11 @@ class UrlController extends Controller
 {
     
     public function index()
-    {
-		$urls=Url::all();
-        return view('url',compact('urls'));
+    {		
+        return view('url');
     }
 
-    
-    public function create()
-    {
-		return view('url');        
-    }
-
- 
+	// save long_url and create short_url
     public function store()
     {
 		if(Request::ajax()) {
@@ -39,7 +31,7 @@ class UrlController extends Controller
 		}
     }
 
-    
+    // retrieve short url and redirect to actual url
 	public function handleShortcode( $shortCode )
     {
 		$url=Url::where('short_url',$shortCode)->get();		
