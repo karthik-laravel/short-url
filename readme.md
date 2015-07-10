@@ -2,3 +2,7 @@
 
 ## Karthik Ram
 
+
+Database name gito
+	import gito.sql
+	
